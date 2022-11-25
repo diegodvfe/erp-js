@@ -1,7 +1,7 @@
 import React from 'react'
 import Feedback from "./Feedback"
 
-function FeedbackList({ feedback }) {
+function FeedbackList({ feedback, deleteHandle }) {
   if (!feedback || feedback.length === 0) {
     return <p>No feedback </p>
   }
@@ -10,11 +10,22 @@ function FeedbackList({ feedback }) {
     <div className="feedback-list">
         {feedback.map((item) => (
           // <div>{item.rating}</div>
-          <Feedback key={item} item={item} />
+          <Feedback key={item.id} item={item} 
+          deleteHandle={deleteHandle}
+          />
         ))}
     </div>
   )
   
 }
+// FeedbackList.propTypes = {
+  // feedback: Proptypes.arrayOf(
+    // Proptypes.shape({
+      // id: PropTypes.string.isRequired,
+      // text: PropTypes.string.isRequired,
+      // rating: PropTypes.string.isRequired,
+    // })
+  // )
+// }
 
 export default FeedbackList
