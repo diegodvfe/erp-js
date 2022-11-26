@@ -6,12 +6,12 @@ const FeedbackData = [
   },
   {
     id: 2,
-    rating: 9,
+    rating: 7,
     text: 'Hola mundo ',
   },
   {
     id: 3,
-    rating: 9,
+    rating: 10,
     text: 'Hola mundo ',
   },
 ];
