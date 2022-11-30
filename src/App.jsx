@@ -8,6 +8,7 @@ import FeedbackForm from './components/FeedbackForm';
 import {v4 as uuidv4} from 'uuid'
 import About from "./pages/About"
 import { useState } from 'react';
+import AboutIconLink from "./components/AboutIconLink"
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom"
 
 
@@ -49,8 +50,8 @@ function App() {
                 <About/>
               </>
           }/>
-
         </Routes>
+         <AboutIconLink />
       </div>
 
       </Router>
