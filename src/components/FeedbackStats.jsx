@@ -1,7 +1,11 @@
 import React from 'react';
+import {useContext} from "react";
+import FeedbackContext from "../context/FeedbackContext"
 
 
-function FeedbackStats({ feedback }) {
+function FeedbackStats() {
+  const {feedback} = useContext(FeedbackContext);
+
   //Caculate
   let average =
     feedback.reduce((acc, cur) => {
