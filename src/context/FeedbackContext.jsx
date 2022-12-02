@@ -21,7 +21,7 @@ export const FeedbackProvider = ({children}) => {
 
   //Fetch feedback
   const fetchFeedback = async () => {
-    const response = await fetch(`http://localhost:5000/feedback`)
+    const response = await fetch(`/feedback?_sort=id&_order=desc`)
     const data = await response.json()
 
     setFeedback(data)
@@ -30,8 +30,17 @@ export const FeedbackProvider = ({children}) => {
 
 // agregar un nuevo item
 
-     const addFeedback = (newFeedback) => {
-    newFeedback.id = uuidv4()
+     const addFeedback = async (newFeedback) => {
+
+      const response = await fetch("/feedback",{
+        method:"POST",
+        headers:{
+          "Content-Type": "application/json"
+        },
+        // body
+      }) 
+
+    // newFeedback.id = uuidv4()
     setFeedback([newFeedback, ...feedback])
   }
 
@@ -51,7 +60,9 @@ export const FeedbackProvider = ({children}) => {
     })
   }
 
-  const updateFeedback =(id, upItem) => {
+  const updateFeedback = (id, upItem) => {
+
+      // const response = await fetch( )
     setFeedback(feedback.map((item) => 
     (item.id === id ? {...item, ...upItem} :item )))
   }
@@ -61,9 +72,9 @@ export const FeedbackProvider = ({children}) => {
     <FeedbackContext.Provider value ={{
         feedback,
         deleteFeedback,
+        feedbackEdit,
         addFeedback,
         editFeedback, 
-        feedbackEdit,
         updateFeedback,
         //isLoading,
     }}>
