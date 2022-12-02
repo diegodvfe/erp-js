@@ -7,10 +7,11 @@ import FeedbackContext from "../context/FeedbackContext"
 function FeedbackList() {
   const {feedback} = useContext(FeedbackContext)
  
-  if (!feedback || feedback.length === 0) {
+  if ( !feedback || feedback.length === 0) {
     return <p>No feedback </p>
   }
 
+  
   return (
     <div className="feedback-list">
       <AnimatePresence>
